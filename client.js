@@ -9,8 +9,13 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  conn.on("data", (data) => {
+  conn.on("connect", () => {
     // code that does something when the connection is first established
+    console.log("Successfully connected to game server");
+    conn.write("Name: SMP");
+  });
+
+  conn.on("data", (data) => {
     console.log(data);
   });
 
