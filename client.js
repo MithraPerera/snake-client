@@ -13,12 +13,11 @@ const connect = function() {
   conn.on("connect", () => {
     // code that does something when the connection is first established
     console.log("Successfully connected to game server");
+    // Send the Snake Name to server
     conn.write("Name: MIT");
-    // setInterval(() => {
-    //   conn.write("Move: up");
-    // }, 1000)
   });
 
+  // log any data that is sent from the server to the client
   conn.on("data", (data) => {
     console.log(data);
   });
