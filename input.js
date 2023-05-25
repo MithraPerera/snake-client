@@ -17,18 +17,43 @@ const setupInput = function(conn) {
 // Specifies what happens when data is recieved from stdin - pressing a key on the keyboard
 
 const handleUserInput = function(key) {
-  // your code here
-  if (key === '\u0003') { // \u0003 maps to ctrl+c input
-    console.log("Exiting game. Goodbye!");
-    process.exit();
-  } else if (key === '\u0077') { // W Key
-    connection.write("Move: up");
-  } else if (key === '\u0061') { // A Key
-    connection.write("Move: left");
-  } else if (key === '\u0073') { // S Key
-    connection.write("Move: down");
-  } else if (key === '\u0064') { // D Key
-    connection.write("Move: right");
+
+  switch (key) {
+    // Exit - CTRL + C
+    case '\u0003':
+      console.log("Exiting game. Goodbye!");
+      process.exit();
+      break;
+    // w Key
+    case '\u0077':
+      connection.write("Move: up");
+      break;
+    // a Key
+    case '\u0061':
+      connection.write("Move: left");
+      break;
+    // s Key
+    case '\u0073':
+      connection.write("Move: down");
+      break;
+    // d Key
+    case '\u0064':
+      connection.write("Move: right");
+      break;
+    // Message 1
+    case '\u0031':
+      connection.write("Say: Catch me if you can!");
+      break;
+    // Message 2
+    case '\u0032':
+      connection.write("Say: I'm winning!");
+      break;
+    // Message 3
+    case '\u0033':
+      connection.write("Say: Too slow...");
+      break;
+    default:
+      break;
   }
 };
 
