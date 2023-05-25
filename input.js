@@ -1,3 +1,4 @@
+// Import required modules
 const { MESSAGES } = require("./constants");
 
 // Stores the active TCP connection object.
